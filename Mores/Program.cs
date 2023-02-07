@@ -15,13 +15,8 @@ namespace Mores
             Console.WriteLine("[2] Morse to String");
             int.TryParse(Console.ReadLine(), out int selection);
 
-
             Console.WriteLine($"You've choosen: [{selection}]");
-
             string read = Console.ReadLine().ToUpper();
-
-           // string[] ToMores = new string[read.Length];
-
             Dictionary<char, String> morse = new Dictionary<char, String>()
                 {
                     {'A' , ".-"},
@@ -116,7 +111,7 @@ namespace Mores
             else if (selection == 2)
             {
                foreach(string word in words)
-                {
+               {
                     string decodedWord = "";
                     string[] characters = word.Split(' ');
                     foreach(string character in characters)
@@ -124,7 +119,7 @@ namespace Mores
                         decodedWord += convertToMorse[character];
                     }
                     decodedMessage += decodedWord;
-                }
+               }
 
                 Console.WriteLine(decodedMessage);
             }
