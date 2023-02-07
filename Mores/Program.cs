@@ -61,6 +61,49 @@ namespace Mores
                     {'8' , "---.."},
                     {'9' , "----."},
                 };
+            Dictionary<string, char> convertToMorse = new Dictionary<string, char>()
+            {
+                    {".-",'A'},
+                    {"-...",'B'},
+                    {"-.-.",'C'},
+                    {"-..",'D'},
+                    {".",'E'},
+                    {"..-.",'F'},
+                    {"--.",'G'},
+                    {"....",'H'},
+                    {".." , 'I'},
+                    {".---" , 'J'},
+                    {"-.-" , 'K'},
+                    {".-.." , 'L'},
+                    {"--" , 'M'},
+                    {"-." , 'N'},
+                    {"---" , 'O'},
+                    {".--." , 'P'},
+                    {"--.-" , 'Q'},
+                    {".-." , 'R'},
+                    {"..." , 'S'},
+                    {"-" , 'T'},
+                    {"..-" , 'U'},
+                    {"...-" , 'V'},
+                    {".--" , 'W'},
+                    {"-..-" , 'X'},
+                    {"-.--" , 'Y'},
+                    {"--.." , 'Z'},
+                    {"-----" , '0'},
+                    {".----" , '1'},
+                    {"..---" , '2'},
+                    {"...--" , '3'},
+                    {"....-" , '4'},
+                    {"....." , '5'},
+                    {"-...." , '6'},
+                    {"--..." , '7'},
+                    {"---.." , '8'},
+                    {"----." , '9'},
+            };
+
+            string[] words = read.Split(' ');
+            string decodedMessage = "";
+
             if (selection == 1)
             {
                 for (int i = 0; i < read.Length; i++)
@@ -70,13 +113,21 @@ namespace Mores
                         Console.Write(morse[c] + " ");
                 }
             }
-            else if(selection == 2)
+            else if (selection == 2)
             {
-                Console.WriteLine("no ready yet");
+               foreach(string word in words)
+                {
+                    string decodedWord = "";
+                    string[] characters = word.Split(' ');
+                    foreach(string character in characters)
+                    {
+                        decodedWord += convertToMorse[character];
+                    }
+                    decodedMessage += decodedWord;
+                }
+
+                Console.WriteLine(decodedMessage);
             }
-
-
-            
            
             Console.ReadLine();
 
